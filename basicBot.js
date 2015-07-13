@@ -231,12 +231,12 @@
         return str;
     };
 
-    var botCreator = "Matthew (Yemasthui)";
-    var botMaintainer = "Benzi (Quoona)"
-    var botCreatorIDs = ["3851534", "4105209"];
+    var botCreator = "qSukky";
+    var botMaintainer = "Paianganbot"
+    var botCreatorIDs = ["3852534", "4103209"];
 
     var basicBot = {
-        version: "2.8.9",
+        version: "6.6.6",
         status: false,
         name: "PaianganBot",
         loggedInID: null,
@@ -378,9 +378,9 @@
                     var pos = Math.floor((Math.random() * API.getWaitList().length) + 1);
                     var user = basicBot.userUtilities.lookupUser(winner);
                     var name = user.username;
-                    API.sendChat(subChat(basicBot.chat.winnerpicked, {name: name, position: pos}));
+                    API.sendChat(subChat(basicBot.chat.winnerpicked, {name: name, position: 1}));
                     setTimeout(function (winner, pos) {
-                        basicBot.userUtilities.moveUser(winner, pos, false);
+                        basicBot.userUtilities.moveUser(winner, 1, false);
                     }, 1 * 1000, winner, pos);
                 }
             }
