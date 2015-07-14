@@ -270,7 +270,7 @@
             cycleGuard: true,
             maximumCycletime: 10,
             voteSkip: true,
-            voteSkipLimit: 7,
+            voteSkipLimit: 6,
             historySkip: false,
             timeGuard: true,
             maximumSongLength: 10,
@@ -916,7 +916,7 @@
             var timeElapsed = API.getTimeElapsed();
 
             if (basicBot.settings.voteSkip) {
-                if ((mehs - woots) >= (basicBot.settings.voteSkipLimit)) {
+                if ((mehs) >= (basicBot.settings.voteSkipLimit)) {
                     API.sendChat(subChat(basicBot.chat.voteskipexceededlimit, {name: dj.username, limit: basicBot.settings.voteSkipLimit}));
                     if (basicBot.settings.smartSkip && timeLeft > timeElapsed){
                         basicBot.roomUtilities.smartSkip();
