@@ -241,7 +241,7 @@
         name: "PaianganBot",
         loggedInID: null,
         scriptLink: "https://rawgit.com/sukybutzi/basicBot/master/basicBot.js",
-        cmdLink: "http://git.io/245Ppg",
+        cmdLink: null,
         chatLink: "https://rawgit.com/sukybutzi/basicBot/master/lang/en.json",
         chat: null,
         loadChat: loadChat,
@@ -298,8 +298,8 @@
             opLink: null,
             rulesLink: null,
             themeLink: null,
-            fbLink: null,
-            youtubeLink: null,
+            fbLink: "www.facebook.com/paiangan69",
+            youtubeLink: "www.youtube.com/paiangan69",
             website: null,
             intervalMessages: [],
             messageInterval: 5,
@@ -1277,7 +1277,7 @@
                 basicBot.room.roomstats.chatmessages++;
             },
             spam: [
-                'hueh', 'hu3', 'brbr', 'heu', 'brbr', 'kkkk', 'spoder', 'mafia', 'zuera', 'zueira',
+                'hueh', 'muie', 'brbr', 'heu', 'brbr', 'kkkk', 'spoder', 'mafia', 'zuera', 'zueira',
                 'zueria', 'aehoo', 'aheu', 'alguem', 'algum', 'brazil', 'zoeira', 'fuckadmins', 'affff', 'vaisefoder', 'huenaarea',
                 'hitler', 'ashua', 'ahsu', 'ashau', 'lulz', 'huehue', 'hue', 'huehuehue', 'merda', 'pqp', 'puta', 'mulher', 'pula', 'retarda', 'caralho', 'filha', 'ppk',
                 'gringo', 'fuder', 'foder', 'hua', 'ahue', 'modafuka', 'modafoka', 'mudafuka', 'mudafoka', 'ooooooooooooooo', 'foda'
