@@ -236,7 +236,7 @@
     var botCreatorIDs = ["3852534", "4103209"];
 
     var basicBot = {
-        version: "6.9",
+        version: "0.2.2x",
         status: false,
         name: "PaianganBot",
         loggedInID: null,
@@ -269,8 +269,8 @@
             maximumLocktime: 10,
             cycleGuard: true,
             maximumCycletime: 10,
-            voteSkip: false,
-            voteSkipLimit: 10,
+            voteSkip: true,
+            voteSkipLimit: 7,
             historySkip: false,
             timeGuard: true,
             maximumSongLength: 10,
@@ -936,9 +936,9 @@
             }
         },
         eventDjadvance: function (obj) {
-            if (basicBot.settings.autowoot) {
-                $("#woot").click(); // autowoot
-            }
+           // if (basicBot.settings.autowoot) {
+            //    $("#woot").click(); // autowoot
+            //}
 
             var user = basicBot.userUtilities.lookupUser(obj.dj.id)
             for(var i = 0; i < basicBot.room.users.length; i++){
