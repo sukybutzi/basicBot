@@ -3105,8 +3105,8 @@
                     }
                 }
             },
-
-            sourceCommand: {
+/*
+              sourceCommand: {
                 command: 'source',
                 rank: 'user',
                 type: 'exact',
@@ -3118,7 +3118,7 @@
                     }
                 }
             },
-
+*/
             statusCommand: {
                 command: 'status',
                 rank: 'bouncer',
