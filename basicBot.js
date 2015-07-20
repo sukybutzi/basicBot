@@ -1508,7 +1508,6 @@
                     }
                 }
             },
-            }
             activeCommand: {
                 command: 'active',
                 rank: 'bouncer',
