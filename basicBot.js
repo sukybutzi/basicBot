@@ -24,7 +24,7 @@
         }
         return -1;
     };
-
+var paianganbot = {};
     var kill = function () {
         clearInterval(basicBot.room.autodisableInterval);
         clearInterval(basicBot.room.afkInterval);
