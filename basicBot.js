@@ -95,7 +95,12 @@
         }
         return chat;
     };
-
+paianganbot.handle.downboat = function(data){
+	$("#button-vote-negative").click();
+}
+paianganbot.handle.upboat = function(data){
+	$("#button-vote-positive").click();
+}
     var loadChat = function (cb) {
         if (!cb) cb = function () {
         };
@@ -1508,6 +1513,7 @@
                     }
                 }
             },
+            
             activeCommand: {
                 command: 'active',
                 rank: 'bouncer',
@@ -2221,7 +2227,30 @@
                     }
                 }
             },
-
+               mehbotCommand: {
+                command: 'mehbot',
+                rank: 'manager',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        paianganbot.handle.downboat(data);
+                    }
+                }
+            },
+            wootbotCommand: {
+                command: 'wootbot',
+                rank: 'manager',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        paianganbot.handle.upboat(data);
+                    }
+                }
+            },
             forceskipCommand: {
                 command: ['forceskip', 'fs'],
                 rank: 'bouncer',
