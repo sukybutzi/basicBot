@@ -95,12 +95,13 @@ var paianganbot = {};
         }
         return chat;
     };
+    /*
 paianganbot.handle.downboat = function(data){
 	$("#button-vote-negative").click();
 }
 paianganbot.handle.upboat = function(data){
 	$("#button-vote-positive").click();
-}
+}*/
     var loadChat = function (cb) {
         if (!cb) cb = function () {
         };
@@ -2235,7 +2236,7 @@ paianganbot.handle.upboat = function(data){
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        paianganbot.handle.downboat(data);
+                        $("#button-vote-negative").click();
                     }
                 }
             },
@@ -2247,7 +2248,7 @@ paianganbot.handle.upboat = function(data){
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        paianganbot.handle.upboat(data);
+                            $("#button-vote-positive").click();
                     }
                 }
             },
