@@ -918,12 +918,13 @@
             if (basicBot.settings.voteSkip) {
                 if ((mehs) >= (basicBot.settings.voteSkipLimit)) {
                     API.sendChat(subChat(basicBot.chat.voteskipexceededlimit, {name: dj.username, limit: basicBot.settings.voteSkipLimit}));
-                    if (basicBot.settings.smartSkip && timeLeft > timeElapsed){
+                    API.moderateForceSkip();
+                /*    if (basicBot.settings.smartSkip && timeLeft > timeElapsed){
                         basicBot.roomUtilities.smartSkip();
                     }
                     else {
                         API.moderateForceSkip();
-                    }
+                    }*/
                 }
             }
 
