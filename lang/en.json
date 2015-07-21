@@ -132,7 +132,6 @@
     "etarestriction": "eta restriction",
     "voteskip": "voteskip",
     "voteskiplimit": "\/me [@%%NAME%%] Voteskip limit is currently set to %%LIMIT%% mehs.",
-    "mehlimit": "\/me %%LIMIT%% meh = skip!"
     "voteskipexceededlimit": "\/me @%%NAME%%, melodia ta a depasit numarul de meh'uri maxim (%%LIMIT%% mehs).",
     "voteskipinvalidlimit": "\/me [@%%NAME%%] Invalid voteskip limit, please try again using a number to signify the number of mehs.",
     "voteskipsetlimit": "\/me [@%%NAME%%] Voteskip limit set to %%LIMIT%%.",
