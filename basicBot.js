@@ -3732,6 +3732,7 @@ paianganbot.handle.upboat = function(data){
 
     loadChat(basicBot.startup);
 }).call(this);
+/*
 var msgs=["subChat(basicBot.chat.mehlimit, {limit: basicBot.settings.voteSkipLimit})"]; //default msgs, add as many as you like.
 var time=360; //in seconds
 var timer;
@@ -3805,3 +3806,4 @@ function stoptimer() {
         window.clearInterval(timer);
         timer = null;
 }
+*/
