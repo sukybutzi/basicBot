@@ -881,6 +881,10 @@ paianganbot.handle.upboat = function(data){
                 welcomeback ?
                     setTimeout(function (user) {
                         API.sendChat(subChat(basicBot.chat.welcomeback, {name: user.username}));
+                        var user = basicBot.userUtilities.lookupUserName(name);
+                        if (typeof user === 'boolean') return API.sendChat(subChat(basicBot.chat.invaliduserspecified, {name: chat.un}));
+                        var toChat = basicBot.userUtilities.dclookup(user.id);
+                        API.sendChat(toChat);
                     }, 1 * 1000, user)
                     :
                     setTimeout(function (user) {
