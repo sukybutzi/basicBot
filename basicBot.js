@@ -242,7 +242,7 @@ paianganbot.handle.upboat = function(data){
     var botCreatorIDs = ["8058328", "4856169"];
 
     var basicBot = {
-        version: "0.2.5z",
+        version: "1.0",
         status: false,
         name: "PaianganBot",
         loggedInID: null,
@@ -2240,7 +2240,7 @@ paianganbot.handle.upboat = function(data){
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        $("#button-vote-negative").click();
+                        $("#meh").click();
                     }
                 }
             },
@@ -2252,7 +2252,7 @@ paianganbot.handle.upboat = function(data){
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                            $("#button-vote-positive").click();
+                            $("#woot").click();
                     }
                 }
             },
