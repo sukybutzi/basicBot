@@ -1503,15 +1503,16 @@ paianganbot.handle.upboat = function(data){
                         }
                 },
              **/
-            numarcommand: {
-                command: 'numar',
+             
+            noticemecommand: {
+                command: 'noticemesenpai',
                 rank: 'user',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        API.sendChat("Numar: "+Math.floor(Math.random()*100)+" @"+data.from);
+                        API.sendChat("/me Senpai noticed you.");
                     }
                 }
             },
