@@ -67,7 +67,7 @@
     "online": "/me PăiangănBot v%%VERSION%% activat!",
     "welcome": "Bun venit, @%%NAME%%",
     "welcomeback": "Bine ai revenit, @%%NAME%%",
-    "songknown": "/me @%%NAME%%, melodia asta e inca in dj history. :repeat:",
+    "songknown": "/me @%%NAME%%, melodia ta a mai fost!. :repeat:",
     "timelimit": "/me @%%NAME%%, melodia ta este mai lunga de %%MAXLENGTH%% minute, ai nevoie de permisiune pentru a pune melodi mai lungi.",
     "notavailable": "\/me @%%NAME%%, the song you played was not available.",
     "permissionownsong": "\/me :up: @%%NAME%% has permission to play their own production!",
