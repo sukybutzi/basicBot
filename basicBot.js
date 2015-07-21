@@ -242,7 +242,7 @@ paianganbot.handle.upboat = function(data){
     var botCreatorIDs = ["8058328", "4856169"];
 
     var basicBot = {
-        version: "1.0",
+        version: "1.0.2",
         status: false,
         name: "PaianganBot",
         loggedInID: null,
