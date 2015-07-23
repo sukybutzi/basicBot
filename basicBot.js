@@ -305,6 +305,7 @@ paianganbot.handle.upboat = function(data){
             opLink: null,
             rulesLink: null,
             themeLink: null,
+            twitterLink: "https://twitter.com/paiangan69",
             fbLink: "www.facebook.com/paiangan69",
             youtubeLink: "www.youtube.com/paiangan69",
             website: null,
@@ -2193,6 +2194,20 @@ paianganbot.handle.upboat = function(data){
                         var estimateMS = ((pos + 1) * 4 * 60 + timeRemaining) * 1000;
                         var estimateString = basicBot.roomUtilities.msToStr(estimateMS);
                         API.sendChat(subChat(basicBot.chat.eta, {name: name, time: estimateString, position: realpos}));
+                    }
+                }
+            },
+
+            twitterCommand: {
+                command: 'twitter',
+                rank: 'user',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        if (typeof basicBot.settings.twitterLink === "string")
+                            API.sendChat(subChat(basicBot.chat.twitter, {link: basicBot.settings.twitterLink}));
                     }
                 }
             },
