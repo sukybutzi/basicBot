@@ -2245,8 +2245,8 @@ paianganbot.handle.upboat = function(data){
                     }
                 }
             },
-               mehbotCommand: {
-                command: 'mehbot',
+               mbCommand: {
+                command: 'mb',
                 rank: 'manager',
                 type: 'exact',
                 functionality: function (chat, cmd) {
@@ -2269,8 +2269,8 @@ paianganbot.handle.upboat = function(data){
                     }
                 }
             },
-            wootbotCommand: {
-                command: 'wootbot',
+            wbCommand: {
+                command: 'wb',
                 rank: 'manager',
                 type: 'exact',
                 functionality: function (chat, cmd) {
