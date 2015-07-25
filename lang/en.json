@@ -64,7 +64,7 @@
     "datarestored": "Previously stored data successfully retrieved.",
     "greyuser": "Only bouncers and up can run a bot.",
     "bouncer": "The bot can't move people when it's run as a bouncer.",
-    "online": "/me now meowing!",
+    "online": "/me now meowing...",
     "twitter": "\/me Follow us on twitter: %%LINK%%",
     "welcome": "Bun venit, @%%NAME%%",
     "welcomeback": "Bine ai revenit, @%%NAME%%",
