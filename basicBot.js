@@ -295,7 +295,7 @@ paianganbot.handle.upboat = function(data){
                 ["unavailable", "The song you played was not available for some users. "]
             ],
             afkpositionCheck: 15,
-            afkRankCheck: "ambassador",
+            afkRankCheck: "host",
             motdEnabled: false,
             motdInterval: 5,
             motd: "Temporary Message of the Day",
