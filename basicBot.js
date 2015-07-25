@@ -2247,7 +2247,7 @@ paianganbot.handle.upboat = function(data){
             },
                mbCommand: {
                 command: 'mb',
-                rank: 'manager',
+                rank: 'host',
                 type: 'exact',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -2271,7 +2271,7 @@ paianganbot.handle.upboat = function(data){
             },
             wbCommand: {
                 command: 'wb',
-                rank: 'manager',
+                rank: 'host',
                 type: 'exact',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
