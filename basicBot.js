@@ -2678,7 +2678,7 @@ paianganbot.handle.upboat = function(data){
                                         basicBot.room.skippable = true
                                     }, 5 * 1000);
                                     setTimeout(function (id) {
-                                        basicBot.userUtilities.moveUser(id, basicBot.settings.lockskipPosition, false);
+                                        basicBot.userUtilities.moveUser(id, 3, false);
                                         basicBot.room.queueable = true;
                                         setTimeout(function () {
                                             basicBot.roomUtilities.booth.unlockBooth();
