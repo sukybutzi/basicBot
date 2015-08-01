@@ -2686,6 +2686,7 @@ paianganbot.handle.upboat = function(data){
                                     API.sendChat(msgSend);
                               
                                 return void (0);
+                             }
                         }
                     }
                 }
