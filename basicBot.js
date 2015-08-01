@@ -2678,7 +2678,7 @@ paianganbot.handle.upboat = function(data){
                                 var r = basicBot.settings.gifs[i][0];
                                 if (reason.indexOf(r) !== -1) {
                                     validReason = true;
-                                    var msgSend = basicBot.settings.gifs[i][1];
+                                    var msgSend += basicBot.settings.gifs[i][1];
                                 }
                             }
                             if (validReason) {
