@@ -2665,6 +2665,7 @@ paianganbot.handle.upboat = function(data){
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
+                	 var msgSend = '@' + name + ': ';
                             if (chat.message.length === cmd.length) {
                 		   API.sendChat("/me [ERROR] Enter a gif name");
                                 return void (0);
