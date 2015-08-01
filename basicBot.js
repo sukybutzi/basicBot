@@ -3779,7 +3779,7 @@ paianganbot.handle.upboat = function(data){
                 }
             }
         }
-    };
+    },
 
     loadChat(basicBot.startup);
 }).call(this);
