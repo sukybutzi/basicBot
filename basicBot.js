@@ -2661,14 +2661,12 @@ paianganbot.handle.upboat = function(data){
                 command: 'gif',
                 rank: 'bouncer',
                 type: 'startsWith',
-                functionality: function (chat, cmd) {
+                functionality: function (chat }, 1000, id);, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                            basicBot.room.queueable = false;
-
                             if (chat.message.length === cmd.length) {
-                               API.sendChat(msgSend);
+                		   API.sendChat("/me [ERROR] Enter a gif name");
                                 return void (0);
                             }
                             var validReason = false;
@@ -2684,7 +2682,8 @@ paianganbot.handle.upboat = function(data){
                             if (validReason) {
                                 setTimeout(function (id) {
                                     API.sendChat(msgSend);
-                              
+                                }, id); 
+                                
                                 return void (0);
                              }
             },
