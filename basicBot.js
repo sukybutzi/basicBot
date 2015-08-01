@@ -2686,6 +2686,7 @@ paianganbot.handle.upboat = function(data){
                                 
                                 return void (0);
                              }
+                    } 
             },
             lockskipCommand: {
                 command: 'lockskip',
