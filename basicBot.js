@@ -2665,7 +2665,6 @@ paianganbot.handle.upboat = function(data){
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                	 var msgSend = '@' + name + ': ';
                             if (chat.message.length === cmd.length) {
                 		   API.sendChat("/me [ERROR] Enter a gif name");
                                 return void (0);
@@ -2677,7 +2676,7 @@ paianganbot.handle.upboat = function(data){
                                 var r = basicBot.settings.gifs[i][0];
                                 if (reason.indexOf(r) !== -1) {
                                     validReason = true;
-                                    msgSend += basicBot.settings.gifs[i][1];
+                                    var msgSend = basicBot.settings.gifs[i][1];
                                 }
                             }
                             if (validReason) {
