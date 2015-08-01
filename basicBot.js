@@ -284,7 +284,7 @@ paianganbot.handle.upboat = function(data){
             autodisable: true,
             commandCooldown: 30,
             usercommandsEnabled: true,
-                 gifs: [
+            gifs: [
                 ["test", "this is a test"],
                 ["suky", "Suky is the best"]
             ],
