@@ -2659,7 +2659,7 @@ paianganbot.handle.upboat = function(data){
 
             gifCommand: {
                 command: 'gif',
-                rank: 'bouncer',
+                rank: 'user',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -2686,6 +2686,7 @@ paianganbot.handle.upboat = function(data){
                                 
                                 return void (0);
                              }
+                        }
                     } 
             },
             lockskipCommand: {
@@ -3779,7 +3780,7 @@ paianganbot.handle.upboat = function(data){
                 }
             }
         }
-    },
+    };
 
     loadChat(basicBot.startup);
 }).call(this);
