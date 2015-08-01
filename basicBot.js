@@ -2665,8 +2665,8 @@ paianganbot.handle.upboat = function(data){
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                    	    var dj = API.getDJ();
-                            var id = dj.id;
+                        //   var dj = API.getDJ();
+                        //    var id = dj.id;
                             if (chat.message.length === cmd.length) {
                 		   API.sendChat("/me [ERROR] Enter a gif name");
                                 return void (0);
@@ -2682,9 +2682,9 @@ paianganbot.handle.upboat = function(data){
                                 }
                             }
                             if (validReason) {
-                                setTimeout(function (id) {
+                                setTimeout(function () {
                                     API.sendChat(msgSend);
-                                }, id); 
+                                }); 
                                 
                                 return void (0);
                              }
