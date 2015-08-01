@@ -284,6 +284,10 @@ paianganbot.handle.upboat = function(data){
             autodisable: true,
             commandCooldown: 30,
             usercommandsEnabled: true,
+                 gifs: [
+                ["test", "this is a test"],
+                ["suky", "Suky is the best"]
+            ],
             skipPosition: 3,
             skipReasons: [
                 ["theme", "This song does not fit the room theme. "],
@@ -2323,7 +2327,7 @@ paianganbot.handle.upboat = function(data){
                 }
             },
 
-            gifCommand: {
+   /*         gifCommand: {
                 command: ['gif', 'giphy'],
                 rank: 'user',
                 type: 'startsWith',
@@ -2391,7 +2395,7 @@ paianganbot.handle.upboat = function(data){
                     }
                 }
             },
-
+*/
             helpCommand: {
                 command: 'help',
                 rank: 'user',
@@ -2653,6 +2657,39 @@ paianganbot.handle.upboat = function(data){
                 }
             },
 
+            gifCommand: {
+                command: 'gif',
+                rank: 'bouncer',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                            basicBot.room.queueable = false;
+
+                            if (chat.message.length === cmd.length) {
+                               API.sendChat(msgSend);
+                                return void (0);
+                            }
+                            var validReason = false;
+                            var msg = chat.message;
+                            var reason = msg.substring(cmd.length + 1);
+                            for (var i = 0; i < basicBot.settings.gifs.length; i++) {
+                                var r = basicBot.settings.gifs[i][0];
+                                if (reason.indexOf(r) !== -1) {
+                                    validReason = true;
+                                    msgSend += basicBot.settings.gifs[i][1];
+                                }
+                            }
+                            if (validReason) {
+                                setTimeout(function (id) {
+                                    API.sendChat(msgSend);
+                              
+                                return void (0);
+                        }
+                    }
+                }
+            },
             lockskipCommand: {
                 command: 'lockskip',
                 rank: 'bouncer',
