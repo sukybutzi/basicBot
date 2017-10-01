@@ -112,7 +112,7 @@
 
     var loadChat = function(cb) {
         if (!cb) cb = function() {};
-        $.get('https://rawgit.com/xsuky/source/master/lang/langIndex.json', function(json) {
+        $.get('https://rawgit.com/xSuky/basicBot/master/lang/langIndex.json', function(json) {
             var link = basicBot.chatLink;
             if (json !== null && typeof json !== 'undefined') {
                 langIndex = json;
@@ -251,8 +251,8 @@
         name: 'TRCCBot',
         loggedInID: null,
         scriptLink: 'https://rawgit.com/cringebot/source/master/basicBot.js',
-        cmdLink: 'http://git.io/245Ppg',
-        chatLink: 'https://rawgit.com/xsuky/source/master/lang/en.json',
+        cmdLink: null,
+        chatLink: 'https://rawgit.com/xSuky/basicBot/master/lang/en.json',
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
@@ -260,7 +260,7 @@
         settings: {
             botName: 'TRCCBot',
             language: 'english',
-            chatLink: 'https://rawgit.com/xsuky/source/master/lang/en.json',
+            chatLink: 'https://rawgit.com/xSuky/basicBot/master/lang/en.json',
             scriptLink: 'https://rawgit.com/cringebot/source/master/basicBot.js',
             roomLock: false, // Requires an extension to re-load the script
             startupCap: 1, // 1-200
