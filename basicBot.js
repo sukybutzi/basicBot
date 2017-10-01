@@ -112,7 +112,7 @@
 
     var loadChat = function(cb) {
         if (!cb) cb = function() {};
-        $.get('https://rawgit.com/basicBot/source/master/lang/langIndex.json', function(json) {
+        $.get('https://rawgit.com/cringebot/source/master/lang/langIndex.json', function(json) {
             var link = basicBot.chatLink;
             if (json !== null && typeof json !== 'undefined') {
                 langIndex = json;
@@ -241,18 +241,18 @@
         return str;
     };
 
-    var botCreator = 'Yemasthui';
+    var botCreator = 'Suky';
     var botMaintainer = 'Benzi';
-    var botCreatorIDs = [3851534, 4105209];
+    var botCreatorIDs = [4856169];
 
     var basicBot = {
         version: '2.11.1',
         status: false,
-        name: 'basicBot',
+        name: 'TRCCBot',
         loggedInID: null,
-        scriptLink: 'https://rawgit.com/basicBot/source/master/basicBot.js',
+        scriptLink: 'https://rawgit.com/cringebot/source/master/basicBot.js',
         cmdLink: 'http://git.io/245Ppg',
-        chatLink: 'https://rawgit.com/basicBot/source/master/lang/en.json',
+        chatLink: 'https://rawgit.com/cringebot/source/master/lang/en.json',
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
@@ -260,8 +260,8 @@
         settings: {
             botName: 'basicBot',
             language: 'english',
-            chatLink: 'https://rawgit.com/basicBot/source/master/lang/en.json',
-            scriptLink: 'https://rawgit.com/basicBot/source/master/basicBot.js',
+            chatLink: 'https://rawgit.com/cringebot/source/master/lang/en.json',
+            scriptLink: 'https://rawgit.com/cringebot/source/master/basicBot.js',
             roomLock: false, // Requires an extension to re-load the script
             startupCap: 1, // 1-200
             startupVolume: 0, // 0-100
@@ -319,9 +319,9 @@
             songstats: true,
             commandLiteral: '!',
             blacklists: {
-                NSFW: 'https://rawgit.com/basicBot/custom/master/blacklists/NSFWlist.json',
-                OP: 'https://rawgit.com/basicBot/custom/master/blacklists/OPlist.json',
-                BANNED: 'https://rawgit.com/basicBot/custom/master/blacklists/BANNEDlist.json'
+                NSFW: 'https://rawgit.com/cringebot/custom/master/blacklists/NSFWlist.json',
+                OP: 'https://rawgit.com/cringebot/custom/master/blacklists/OPlist.json',
+                BANNED: 'https://rawgit.com/cringebot/custom/master/blacklists/BANNEDlist.json'
             }
         },
         room: {
@@ -393,11 +393,11 @@
                     var name = user.username;
                     API.sendChat(subChat(basicBot.chat.winnerpicked, {
                         name: name,
-                        position: pos
+                        position: 1
                     }));
-                    setTimeout(function(winner, pos) {
-                        basicBot.userUtilities.moveUser(winner, pos, false);
-                    }, 1 * 1000, winner, pos);
+                    setTimeout(function(winner, 1) {
+                        basicBot.userUtilities.moveUser(winner, 1, false);
+                    }, 1 * 1000, winner, 1);
                 }
             },
             usersUsedThor: []
@@ -576,7 +576,38 @@
                 return msg;
             }
         },
-
+	dclookupwelcome: function (id) {
+                var user = basicBot.userUtilities.lookupUser(id);
+                if (typeof user === 'boolean') return basicBot.chat.usernotfound;
+                var name = user.username;
+                if (user.lastDC.time === null) return subChat(basicBot.chat.notdisconnectedwb, {name: name});
+                var dc = user.lastDC.time;
+                var pos = user.lastDC.position;
+                if (pos === null) return (subChat(basicBot.chat.nopositionwb, {name: basicBot.userUtilities.getUser(user).username}));
+                var timeDc = Date.now() - dc;
+                var validDC = false;
+                if (5 * 60 * 1000 > timeDc) {
+                    validDC = true;
+                }
+                var time = basicBot.roomUtilities.msToStr(timeDc);
+                if (!validDC) return (subChat(basicBot.chat.toolongagodc, {name: basicBot.userUtilities.getUser(user).username}));
+                var songsPassed = basicBot.room.roomstats.songCount - user.lastDC.songCount;
+                var afksRemoved = 0;
+                var afkList = basicBot.room.afkList;
+                for (var i = 0; i < afkList.length; i++) {
+                    var timeAfk = afkList[i][1];
+                    var posAfk = afkList[i][2];
+                    if (dc < timeAfk && posAfk < pos) {
+                        afksRemoved++;
+                    }
+                }
+                var newPosition = user.lastDC.position;
+		if (newPosition <= 0) return subChat(basicBot.chat.notdisconnectedwb, {name: name});
+                var msg = subChat(basicBot.chat.validdc, {name: basicBot.userUtilities.getUser(user).username, time: time, position: newPosition});
+                basicBot.userUtilities.moveUser(user.id, newPosition, true);
+                return msg;
+            }
+        },
         roomUtilities: {
             rankToNumber: function(rankString) {
                 var rankInt = null;
@@ -911,15 +942,14 @@
               console.log(false);
               console.log(botCreatorIDs);
                 welcomeback ?
-                    setTimeout(function(user) {
-                        API.sendChat(subChat(basicBot.chat.welcomeback, {
-                            name: user.username
-                        }));
-                    }, 1 * 1000, user) :
-                    setTimeout(function(user) {
-                        API.sendChat(subChat(basicBot.chat.welcome, {
-                            name: user.username
-                        }));
+                    setTimeout(function (user) {
+                       // API.sendChat(subChat(basicBot.chat.welcomeback, {name: user.username}));
+                        var toChat = basicBot.userUtilities.dclookupwelcome(user.id);
+                        API.sendChat(toChat);
+                    }, 1 * 1000, user)
+                    :
+                    setTimeout(function (user) {
+                        API.sendChat(subChat(basicBot.chat.welcome, {name: user.username}));
                     }, 1 * 1000, user);
             }
         },
@@ -2734,7 +2764,7 @@
                         }));
                         var argument = msg.substring(cmd.length + 1);
 
-                        $.get('https://rawgit.com/basicBot/source/master/lang/langIndex.json', function(json) {
+                        $.get('https://rawgit.com/cringebot/source/master/lang/langIndex.json', function(json) {
                             var langIndex = json;
                             var link = langIndex[argument.toLowerCase()];
                             if (typeof link === 'undefined') {
@@ -3447,7 +3477,7 @@
                     }
                 }
             },
-
+/*
             sourceCommand: {
                 command: 'source',
                 rank: 'user',
@@ -3460,7 +3490,7 @@
                     }
                 }
             },
-
+*/
             statusCommand: {
                 command: 'status',
                 rank: 'bouncer',
