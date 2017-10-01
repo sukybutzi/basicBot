@@ -397,7 +397,7 @@
                     }));
                     setTimeout(function(winner, pos) {
                         basicBot.userUtilities.moveUser(winner, 1, false);
-                    }, 1 * 1000, winner, 1);
+                    }, 1 * 1000, winner, pos);
                 }
             },
             usersUsedThor: []
