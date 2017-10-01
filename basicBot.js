@@ -574,7 +574,6 @@
                 });
                 basicBot.userUtilities.moveUser(user.id, newPosition, true);
                 return msg;
-            }
         },
 	dclookupwelcome: function (id) {
                 var user = basicBot.userUtilities.lookupUser(id);
