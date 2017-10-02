@@ -280,11 +280,11 @@
             maximumLocktime: 10,
             cycleGuard: true,
             maximumCycletime: 10,
-            voteSkip: false,
-            voteSkipLimit: 10,
+            voteSkip: true,
+            voteSkipLimit: 5,
             historySkip: false,
             timeGuard: true,
-            maximumSongLength: 10,
+            maximumSongLength: 6,
             autodisable: false,
             commandCooldown: 30,
             usercommandsEnabled: true,
@@ -936,7 +936,9 @@
 
             if (botCreatorIDs.indexOf(user.id) > -1) {
               console.log(true);
-                API.sendChat('@'+user.username+' '+':sparkles: :bow: :sparkles:');
+		var toChat = basicBot.userUtilities.dclookupwelcome(user.id);
+                 API.sendChat(toChat);
+		 API.sendChat('@'+user.username+' '+':sparkles: :bow: :sparkles:');
             } else if (basicBot.settings.welcome && greet) {
               console.log(false);
               console.log(botCreatorIDs);
