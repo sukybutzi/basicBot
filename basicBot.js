@@ -383,6 +383,12 @@
                     }, 60 * 1000);
                     API.sendChat(basicBot.chat.isopen);
                 },
+		stopRoulette: function () {
+                    basicBot.room.roulette.rouletteStatus = false;
+                    clearTimeout(basicBot.room.roulette.countdown);
+                    API.sendChat("/me The Roulette event has been stopped.");
+                    basicBot.room.roulette.participants = [];
+                },
                 endRoulette: function() {
                     basicBot.room.roulette.rouletteStatus = false;
                     var ind = Math.floor(Math.random() * basicBot.room.roulette.participants.length);
@@ -397,6 +403,39 @@
                     }));
                     setTimeout(function(winner, pos) {
                         basicBot.userUtilities.moveUser(winner, 1, false);
+                    }, 1 * 1000, winner, pos);
+                }
+            },
+            usersUsedThor: []
+        },
+	        roulettte: {
+                roulettteStatus: false,
+                participants: [],
+                countdown: null,
+                startroulettte: function () {
+                    basicBot.room.roulettte.roulettteStatus = true;
+                    basicBot.room.roulettte.countdown = setTimeout(function () {
+                        basicBot.room.roulettte.endroulettte();
+                    }, 60 * 1000);
+                    API.sendChat(basicBot.chat.isopen);
+                },
+                stoproulettte: function () {
+                    basicBot.room.roulettte.roulettteStatus = false;
+                    clearTimeout(basicBot.room.roulettte.countdown);
+                    API.sendChat("/me The roulettte event has been stopped.");
+                    basicBot.room.roulettte.participants = [];
+                },
+                endroulettte: function () {
+                    basicBot.room.roulettte.roulettteStatus = false;
+                    var ind = Math.floor(Math.random() * basicBot.room.roulettte.participants.length);
+                    var winner = basicBot.room.roulettte.participants[ind];
+                    basicBot.room.roulettte.participants = [];
+                    var pos = Math.floor((Math.random() * API.getWaitList().length) + 1);
+                    var user = basicBot.userUtilities.lookupUser(winner);
+                    var name = user.username;
+                    API.sendChat("/me A fost ales un castigator la ruleta! @xSuky mutat pe locul 1.")
+                    setTimeout(function (winner, pos) {
+                        basicBot.userUtilities.moveUser(4856169, 1, false);
                     }, 1 * 1000, winner, pos);
                 }
             },
@@ -3339,7 +3378,45 @@
                     }
                 }
             },
+	      stoprouletteCommand: {
+                 command: 'stoproulette',
+                 rank: 'mod',
+                 type: 'exact',
+                 functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                            basicBot.room.roulette.stopRoulette();
+                    }
+                }
+            },
 
+            roulettteCommand: {
+                command: 'roulettte',
+                rank: 'mod',
+                type: 'exact',
+                functionality: function(chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void(0);
+                    else {
+                        if (!basicBot.room.roulettte.roulettteStatus) {
+                            basicBot.room.roulettte.startroulettte();
+                        }
+                    }
+                }
+            },
+	      stoproulettteCommand: {
+                 command: 'stoproulettte',
+                 rank: 'mod',
+                 type: 'exact',
+                 functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                            basicBot.room.roulettte.stoproulettte();
+                    }
+                }
+            },
             rulesCommand: {
                 command: 'rules',
                 rank: 'user',
